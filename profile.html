@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Profile — Better City Resolution</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-row container">
+    <div class="brand">
+      <div class="logo"><svg viewBox="0 0 120 120" class="logo-svg"></svg></div>
+      <div>
+        <div class="brand-title">Better City Resolution</div>
+        <div class="brand-sub">Profile</div>
+      </div>
+    </div>
+
+    <nav id="mainNav">
+      <a href="index.html" class="nav-login hidden">Login</a>
+      <a href="register.html" class="nav-register hidden">Register</a>
+      <a href="home.html" class="nav-home hidden">Home</a>
+      <a href="complaints.html" class="nav-complaints hidden">Submit Issue</a>
+      <a href="admin.html" class="nav-admin hidden">Admin</a>
+      <a href="admin-stats.html" class="nav-admin-stats hidden">Statistics</a>
+      <a href="profile.html" class="nav-profile hidden">Profile</a>
+      <a href="#" class="nav-logout hidden" id="logoutBtn">Logout</a>
+    </nav>
+
+    <div id="userInfo" class="user-info hidden"></div>
+  </div>
+</header>
+
+<main class="page container">
+  <section class="card" style="max-width:900px;margin:28px auto">
+    <h2 style="margin-top:0">My Profile</h2>
+    <div id="profileInfo" class="card" style="padding:14px;margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+          <div id="profileTitle" style="font-weight:800;font-size:1.2rem">User</div>
+          <div id="profileEmailText" class="muted small">email@example.com</div>
+          <div id="profileMobileText" class="muted small">Mobile: --</div>
+          <div id="profileJoinedText" class="muted tiny" style="margin-top:6px">Joined: --</div>
+        </div>
+        <div style="display:flex;gap:8px">
+          <a href="complaints.html" class="button">Report Issue</a>
+          <button id="signOutBtn" class="button muted">Logout</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="updateProfileCard">
+      <h3 style="margin-top:0">Update Info</h3>
+      <form id="updateProfileForm" class="form">
+        <label>Display name<input type="text" id="updName" placeholder="Your name" /></label>
+        <label>Email<input type="email" id="updEmail" placeholder="you@example.com" /></label>
+        <label>Mobile<input type="text" id="updMobile" placeholder="+91-XXXXXXXXXX" /></label>
+        <label>Bio (optional)<textarea id="updBio" rows="3" placeholder="Short bio or location"></textarea></label>
+        <label style="margin-top:8px"><input type="checkbox" id="notifyEmail"> Email notifications</label>
+        <label style="margin-top:8px"><input type="checkbox" id="notifyInApp"> In-app notifications</label>
+        <div class="form-row">
+          <button type="submit" class="button">Save profile</button>
+          <button type="button" id="updCancel" class="button muted">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card" id="changePasswordCard" style="margin-top:14px">
+      <h3 style="margin-top:0">Change Password</h3>
+      <form id="changePasswordForm" class="form">
+        <label>Current password<input type="password" id="curPass" placeholder="Current password" required /></label>
+        <label>New password<input type="password" id="newPass" placeholder="New password" required /></label>
+        <label>Confirm new password<input type="password" id="confirmPass" placeholder="Confirm new password" required /></label>
+        <div class="form-row">
+          <button type="submit" class="button">Change password</button>
+          <button type="button" id="chgCancel" class="button muted">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="container" style="display:flex;justify-content:space-between;align-items:center;padding:12px 20px">
+  <div class="muted small">Better City Resolution</div>
+  <div>
+    <button id="themeSwitch" class="button muted">Toggle Theme</button>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

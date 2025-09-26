@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Admin Statistics — SCS</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-row container">
+    <div class="brand">
+      <div class="logo"><svg viewBox="0 0 120 120" class="logo-svg"></svg></div>
+      <div>
+        <div class="brand-title">Better City Resolution</div>
+        <div class="brand-sub">Admin Statistics</div>
+      </div>
+    </div>
+    <nav id="mainNav">
+      <a href="index.html" class="nav-login hidden">Login</a>
+      <a href="register.html" class="nav-register hidden">Register</a>
+      <a href="home.html" class="nav-home hidden">Home</a>
+      <a href="complaints.html" class="nav-complaints hidden">Submit Issue</a>
+      <a href="admin.html" class="nav-admin hidden">Admin</a>
+      <a href="admin-stats.html" class="nav-admin-stats hidden">Statistics</a>
+      <a href="profile.html" class="nav-profile hidden">Profile</a>
+      <a href="#" class="nav-logout hidden" id="logoutBtn">Logout</a>
+    </nav>
+    <div id="userInfo" class="user-info hidden"></div>
+  </div>
+</header>
+
+<main class="page container">
+  <section class="card" style="max-width:1100px;margin:28px auto">
+    <h2>Statistics Dashboard</h2>
+    <div style="display:flex; gap:18px; flex-wrap:wrap; margin-bottom:20px;">
+      <canvas id="pieChart" width="220" height="220"></canvas>
+      <canvas id="barChart" width="220" height="220"></canvas>
+    </div>
+
+    <div style="margin-top:12px">
+      <strong>Filter by Category: </strong>
+      <button class="filter-btn button muted" data-cat="all">All</button>
+      <button class="filter-btn button muted" data-cat="pothole">Potholes</button>
+      <button class="filter-btn button muted" data-cat="streetlight">Streetlight</button>
+      <button class="filter-btn button muted" data-cat="water">Water</button>
+      <button class="filter-btn button muted" data-cat="garbage">Garbage</button>
+      <button class="filter-btn button muted" data-cat="other">Other</button>
+    </div>
+
+    <div id="statsReportsList" class="list" style="margin-top:18px"></div>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

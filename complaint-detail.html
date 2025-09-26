@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Complaint Details</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <style>
+    .detail-photo { max-width:100%; border-radius:10px; box-shadow:0 8px 30px rgba(12,20,40,0.06); display:block; margin:10px 0; }
+    .detail-grid { display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap; }
+    .detail-left { flex:1; min-width:280px; }
+    .detail-right { width:340px; max-width:40%; min-width:220px; }
+    @media (max-width:900px) { .detail-right { width:100%; max-width:100% } .detail-grid { flex-direction:column } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-row container">
+      <div class="brand">
+        <div class="logo"><svg viewBox="0 0 120 120" class="logo-svg"></svg></div>
+        <div>
+          <div class="brand-title">Better City Resolution</div>
+          <div class="brand-sub">Report — Track — Resolve</div>
+        </div>
+      </div>
+
+      <nav id="mainNav">
+        <a href="indexx.html" class="nav-login hidden">Login</a>
+        <a href="register.html" class="nav-register hidden">Register</a>
+        <a href="home.html" class="nav-home hidden">Home</a>
+        <a href="complaints.html" class="nav-complaints hidden">Submit Issue</a>
+        <a href="admin.html" class="nav-admin hidden">Admin</a>
+        <a href="admin-stats.html" class="nav-admin-stats hidden">Statistics</a>
+
+        <a href="#" class="nav-logout hidden" id="logoutBtn">Logout</a>
+        
+
+      </nav>
+
+      <div id="userInfo" class="user-info hidden"></div>
+    </div>
+  </header>
+
+  <main class="page container">
+    <div class="card" id="detailCard" style="max-width:1100px;margin:28px auto">
+      <a href="admin.html" class="button muted" style="margin-bottom:12px">← Back to Admin</a>
+      <h2 id="detailTitle">Complaint Details</h2>
+
+      <div class="detail-grid">
+        <div class="detail-left">
+          <p id="detailDesc" class="muted"></p>
+          <div id="detailMeta" class="muted small"></div>
+          <div id="detailPhotoWrap"></div>
+          <div style="margin-top:12px">
+            <strong>Location / Address</strong>
+            <div id="detailAddress" class="muted small" style="margin-top:6px"></div>
+          </div>
+        </div>
+
+        <div class="detail-right">
+          <div style="margin-bottom:8px"><strong>Category</strong><div id="detailCategory" class="muted small"></div></div>
+          <div style="margin-bottom:8px"><strong>Reporter</strong><div id="detailReporter" class="muted small"></div></div>
+          <div style="margin-bottom:8px"><strong>Status</strong>
+            <select id="detailStatus" class="status-select" style="margin-top:6px; width:100%;"></select>
+          </div>
+
+          <div style="margin-top:14px">
+            <button id="detailSaveBtn" class="button">Save</button>
+            <button id="detailDeleteBtn" class="button muted" style="margin-left:8px">Delete</button>
+          </div>
+
+          <div style="margin-top:18px">
+            <strong>Map</strong>
+            <div id="detailMap" style="height:200px;border-radius:10px;overflow:hidden;margin-top:8px"></div>
+            <div id="detailCoords" class="muted small" style="margin-top:8px"></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:18px" class="card">
+        <h3>Comments</h3>
+        <div id="commentsList"></div>
+        <div style="margin-top:8px">
+          <textarea id="newCommentText" rows="2" style="width:100%"></textarea>
+          <button id="postCommentBtn" class="button" style="margin-top:8px">Post comment</button>
+        </div>
+      </div>
+
+      <div style="margin-top:18px" class="card">
+        <h3>History</h3>
+        <div id="detailTimeline" class="muted small"></div>
+      </div>
+    </div>
+  </main>
+  
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

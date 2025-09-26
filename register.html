@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SCS — Register</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body.register-bg {
+      background-image: url('941e8dc3-465f-4de8-86bb-836b91789c96.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .auth-card {
+      max-width: 620px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body class="register-bg">
+  <header class="site-header">
+    <div class="header-row container">
+      <div class="brand">
+        <div class="logo"><svg viewBox="0 0 120 120" class="logo-svg"></svg></div>
+        <div>
+          <div class="brand-title">Better City Resolution</div>
+          <div class="brand-sub">Report — Track — Resolve</div>
+        </div>
+      </div>
+      <nav id="mainNav">
+        <a href="indexx.html" class="nav-indexx">Login</a>
+        <a href="register.html" class="nav-register">Register</a>
+        <a href="home.html" class="nav-home hidden">Home</a>
+        <a href="complaints.html" class="nav-complaints hidden">Submit Issue</a>
+        <a href="admin.html" class="nav-admin hidden">Admin</a>
+        <a href="admin-stats.html" class="nav-admin-stats hidden">Statistics</a>
+        <a href="profile.html" class="nav-profile hidden">Profile</a>
+        <a href="#" class="nav-logout hidden" id="logoutBtn">Logout</a>
+      </nav>
+      <div id="userInfo" class="user-info hidden"></div>
+    </div>
+  </header>
+
+  <main class="page container">
+    <section class="card auth-card">
+      <h2>Create account</h2>
+      <form id="registerForm" class="form">
+        <label>Username
+          <input type="text" id="regUsername" placeholder="choose username" required />
+        </label>
+        <label>Email
+          <input type="email" id="regEmail" placeholder="you@example.com" required />
+        </label>
+        <label>Password
+          <input type="password" id="regPassword" placeholder="password" required />
+        </label>
+        <div class="form-row">
+          <button type="submit" class="button">Register</button>
+          <a href="index.html" class="button muted">Back to login</a>
+        </div>
+      </form>
+      <p class="muted small">Already registered? <a href="index.html">Login here</a></p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin — Better City Resolution</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-row container">
+      <div class="brand">
+        <div class="logo"><svg viewBox="0 0 120 120" class="logo-svg" aria-hidden="true"></svg></div>
+        <div>
+          <div class="brand-title">Better City Resolution</div>
+          <div class="brand-sub">Admin Dashboard</div>
+        </div>
+      </div>
+
+      <nav id="mainNav">
+        <a href="home.html" class="nav-home hidden">User Home</a>
+        <a href="complaints.html" class="nav-complaints hidden">Submit Issue</a>
+        <a href="admin.html" class="nav-admin hidden">Admin Dashboard</a>
+        <a href="#" class="nav-logout hidden" id="logoutBtn">Logout</a>
+        <a href="admin-stats.html" class="nav-admin-stats hidden">Statistics</a>
+
+      </nav>
+
+      <div id="userInfo" class="user-info hidden"></div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="page container">
+    <section class="card">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+        <div>
+          <h2 style="margin:0 0 6px 0">Admin Dashboard</h2>
+          <p class="muted" style="margin:0">Quick overview — click a card to filter the reports below.</p>
+        </div>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <a href="admin.html" class="button muted" style="text-decoration:none; padding:10px 14px">Manage Single View</a>
+          <button id="refreshDashboard" class="button">Refresh</button>
+        </div>
+      </div>
+
+      <!-- Statistic Cards -->
+      <div id="dashboardGrid" class="dashboard-grid" style="margin-top:18px"></div>
+
+      <!-- Admin list (filter + results) -->
+      <div class="card" style="margin-top:12px;">
+        <div class="admin-list-header">
+          <h3 style="margin:0">Reports</h3>
+          <div id="filterChips" style="display:flex; gap:8px; align-items:center"></div>
+        </div>
+
+        <div id="adminList" class="list"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    // Refresh button logic
+    document.getElementById('refreshDashboard')?.addEventListener('click', () => {
+      if (typeof renderAdminDashboard === 'function') renderAdminDashboard();
+      if (typeof renderAdmin === 'function') renderAdmin();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SCS — Submit Issue</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-row container">
+    <div class="brand">
+      <div class="logo"><svg viewBox="0 0 120 120" class="logo-svg"></svg></div>
+      <div>
+        <div class="brand-title">Better City Resolution</div>
+        <div class="brand-sub">Report — Track — Resolve</div>
+      </div>
+    </div>
+
+    <nav id="mainNav">
+      <a href="indexx.html" class="nav-login hidden">Login</a>
+      <a href="register.html" class="nav-register hidden">Register</a>
+      <a href="home.html" class="nav-home hidden">Home</a>
+      <a href="complaints.html" class="nav-complaints hidden">Submit Issue</a>
+      <a href="admin.html" class="nav-admin hidden">Admin</a>
+      <a href="admin-stats.html" class="nav-admin-stats hidden">Statistics</a>
+      <a href="profile.html" class="nav-profile hidden">Profile</a>
+      <a href="#" class="nav-logout hidden" id="logoutBtn">Logout</a>
+    </nav>
+
+    <div id="userInfo" class="user-info hidden"></div>
+  </div>
+</header>
+
+<main class="page container">
+  <section class="card">
+    <h2>Report a New Issue</h2>
+    <form id="complaintForm" class="form" enctype="multipart/form-data">
+      <label>Title<input type="text" id="title" required /></label>
+      <label>Description<textarea id="description" rows="4" required></textarea></label>
+      <label>Category
+        <select id="category">
+          <option value="pothole">Pothole</option>
+          <option value="garbage">Garbage</option>
+          <option value="streetlight">Streetlight</option>
+          <option value="water">Water</option>
+          <option value="other">Other</option>
+        </select>
+      </label>
+      <label>Location (exact address)
+        <input type="text" id="locationText" placeholder="Click map to pick location or type address" />
+      </label>
+      <div class="form-row">
+        <div style="flex:1">
+          <label>Latitude (optional)<input type="text" id="lat" placeholder="28.7041" /></label>
+        </div>
+        <div style="flex:1">
+          <label>Longitude (optional)<input type="text" id="lng" placeholder="77.1025" /></label>
+        </div>
+      </div>
+      <label>Photos (optional — multiple)<input type="file" id="photo" accept="image/*" multiple /></label>
+      <label style="margin-top:8px"><input type="checkbox" id="anonReport"> Submit anonymously</label>
+      <div class="form-row" style="margin-top:12px">
+        <button type="submit" id="submitBtn" class="button">Submit Complaint</button>
+        <button type="button" id="resetBtn" class="button muted">Reset</button>
+      </div>
+      <p class="muted small" style="margin-top:10px">
+        Tip: Click on the map below to pick the exact location. The address will be filled automatically. Photos are saved in-browser for demo.
+      </p>
+    </form>
+  </section>
+
+  <section style="margin-top:18px" class="card">
+    <h2>All Recent Complaints</h2>
+    <div id="complaintList" class="list"></div>
+  </section>
+
+  <section style="margin-top:18px" class="card">
+    <h2>Pick location on map</h2>
+    <div id="mapComplaints" style="height:360px;border-radius:10px;overflow:hidden"></div>
+  </section>
+
+  <!-- <section style="margin-top:18px" class="card">
+    <h2>Your Current Location</h2>
+    <div id="mapCurrentLocation" style="height:300px; border-radius:10px; overflow:hidden;"></div>
+  </section> -->
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- <script>
+  // Initialize the complaint map (example center Delhi)
+  var mapComplaints = L.map('mapComplaints').setView([28.7041, 77.1025], 13);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(mapComplaints);
+
+  // Optionally center complaint map on user location if available
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var lat = position.coords.latitude;
+      var lng = position.coords.longitude;
+      mapComplaints.setView([lat, lng], 15);
+    });
+  }
+
+  // Initialize current location map with global initial view
+  var currentLocationMap = L.map('mapCurrentLocation').setView([20, 0], 2);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(currentLocationMap);
+
+  // Show exact user location in currentLocationMap with marker and popup
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var lat = position.coords.latitude;
+      var lng = position.coords.longitude;
+      currentLocationMap.setView([lat, lng], 15);
+      var marker = L.marker([lat, lng]).addTo(currentLocationMap);
+      marker.bindPopup("You are here").openPopup();
+    }, function(error) {
+      document.getElementById('mapCurrentLocation').innerHTML =
+        '<p style="padding:10px; color:red;">Unable to retrieve your location.</p>';
+    });
+  } else {
+    document.getElementById('mapCurrentLocation').innerHTML =
+      '<p style="padding:10px; color:red;">Geolocation is not supported by your browser.</p>';
+  }
+</script> -->
+
+<script src="app.js"></script>
+
+</body>
+</html>
